@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="比賽計分"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:background="#00f"
+        android:textColor="#fff"
+        android:paddingVertical="12dp"
+        />
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="52sp"
+        android:text="0"
+        android:gravity="center"
+        android:layout_marginVertical="32dp"
+        />
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+3分"
+        android:onClick="addbtn"
+        android:textSize="32sp"
+        android:layout_marginVertical="10dp"/>
+
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+2分"
+        android:onClick="addbtn"
+        android:textSize="32sp"
+        android:layout_marginVertical="10dp"/>
+
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+1分"
+        android:onClick="addbtn"
+        android:textSize="32sp"
+        android:layout_marginVertical="10dp"/>
+</LinearLayout>
