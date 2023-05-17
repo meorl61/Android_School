@@ -10,7 +10,7 @@
         android:label="點餐系統"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Application"
+        android:theme="@style/Theme.ApplicationGame"
         tools:targetApi="31">
         <activity
             android:name=".OrderActivity"

@@ -43,17 +43,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="name"
-        android:textSize="36sp"/>
+        android:textSize="36sp"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/tv_eng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="eng"
-        android:textSize="36sp"/>
+        android:textSize="36sp"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/tv_math"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="math"
-        android:textSize="36sp"/>
+        android:textSize="36sp"
+        android:gravity="center"/>
 </LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".stdpage">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00f"
+        android:gravity="center"
+        android:text="輸入學生資料"
+        android:textColor="#fff"
+        android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="學生姓名"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="請輸入姓名"
+        android:maxLines="1"
+        android:textSize="32sp"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="英文成績"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/et_eng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="請輸入英文成績"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textSize="32sp"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="數學成績"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/et_math"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="請輸入數學成績"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textSize="32sp"
+        android:singleLine="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:onClick="btn_changedata"
+        android:text="完成"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/tv_errmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text=""
+        android:textColor="#f00"
+        android:textSize="22sp"
+        android:gravity="center"/>
+</LinearLayout>

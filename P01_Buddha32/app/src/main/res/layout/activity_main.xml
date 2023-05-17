@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="觀音靈課32籤"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:background="#0000ff"
+        android:textColor="#fff"
+        />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ge01"    >
+    <TextView
+        android:id="@+id/top1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/R01"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="53dp"
+        android:background="#90ffffff"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/w01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#30ff0000"
+            android:gravity="center"
+            android:text="占卜當日前途之吉凶"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/w02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w01"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="占卜步驟"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/w031"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w02"
+            android:layout_alignStart="@id/w04"
+            android:layout_marginTop="1dp"
+            android:text="(唸一遍)"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/w03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w031"
+            android:layout_centerHorizontal="true"
+            android:text="紫金化身千百億\n白衣妙相三十二\n稽首圓通自在尊\n沙界咸稱大悲主"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/w05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w03"
+            android:layout_alignStart="@id/w03"
+            android:layout_marginTop="10dp"
+            android:text="(唸七遍或三七遍或一百八遍)"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/w04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w05"
+            android:layout_centerHorizontal="true"
+            android:text="南無大慈大悲靈感\n觀世音菩薩摩訶薩"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/w06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/w04"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="今虔誠祈禱：\n弟子○○○，\n所求○○○○○事，\n未決憂疑；\n即於三十二課內，欲占一課。\n勿順人情，願垂感應！"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="go_get"
+        android:text="抽籤"
+        android:textSize="32sp" />
+</RelativeLayout>
+</LinearLayout>

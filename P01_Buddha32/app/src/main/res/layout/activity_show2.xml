@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShowActivity2"
+    android:background="#E8CCFF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0000ff"
+        android:gravity="center"
+        android:text="觀音靈課32籤"
+        android:textColor="#fff"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:text="你抽到"
+                android:textSize="22sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+            <TextView
+                android:id="@+id/tv_ki"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:text="第 1 籤"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:gravity="start"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_ko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="金木水火土"
+            android:textSize="38sp" />
+
+
+
+        <TextView
+            android:id="@+id/tv_km"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="昇進卦"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/tv_kg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="上上籤"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="#f00"
+            android:textColor="#fff"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="卦詞"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_ks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="彩鳳臨丹闕。靈龜降吉祥。\n禍除福祿至。喜氣自洋洋。"
+            android:layout_marginBottom="10dp"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="#ff0000"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="卦義"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_ke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:text="此卦求財大吉。正宜出入歡娛。\n官詞口舌並消除。病人起離床席。\n求官目下成就。行人早晚還歸。\n禍除災散福盈餘。最喜高明富貴。"
+            android:textSize="19sp" />
+    </LinearLayout>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:text="回上頁"
+    android:layout_gravity="center"
+    android:onClick="btn_bak"/>
+</LinearLayout>
