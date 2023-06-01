@@ -3,7 +3,7 @@ package com.example.scrollview
 import java.io.Serializable
 
 class Customer: Serializable {
-    private val serialVersionUID = 1L // L 即 logn 長整數
+    //private val serialVersionUID = 1L // L 即 logn 長整數
 
     var name = ""
     var sex = ""
