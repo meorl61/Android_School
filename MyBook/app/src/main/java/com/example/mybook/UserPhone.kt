@@ -1,8 +1,9 @@
 package com.example.mybook
 
 import android.text.Editable
+import java.io.Serializable
 
-class UserPhone {
+class UserPhone : Serializable{
     var name ="未命名"
     var eng = -1
     var math = -1

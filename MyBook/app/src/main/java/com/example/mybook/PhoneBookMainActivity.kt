@@ -2,6 +2,7 @@ package com.example.mybook
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,18 +16,21 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
 
 class PhoneBookMainActivity : AppCompatActivity() {
     val context = this
     var listView: ListView? = null
     var myListAdapter: MyListAdapter? = null
 
+    private val fileName = "user_data.ser"
+
     // 學生陣列: arrayListOf() 快速建立ArrayList資料
-    var stArrayList = mutableListOf<UserPhone>(
-        UserPhone("Tom", 100, 99),
-        UserPhone("Amy", 90, 95),
-        UserPhone("Jack", 75, 80),
-    )
+    var stArrayList = mutableListOf<UserPhone>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +40,7 @@ class PhoneBookMainActivity : AppCompatActivity() {
     }
 
     private fun 初始化ListView() {
+        loaddata()
 // 資料適配器
         myListAdapter = MyListAdapter()
 // 尋找ListView
@@ -58,6 +63,20 @@ class PhoneBookMainActivity : AppCompatActivity() {
             Log.d("@@@itemclick", item.toString())
             // 在這裡執行相應的操作，例如更新列表中的項目
         }
+    }
+
+    fun loaddata() {
+        val userData = readUserData()
+        if (userData != null) {
+            stArrayList = userData
+            Log.d("@@有資料", stArrayList.toString())
+            // 顯示使用者資料
+        } else {
+            stArrayList = mutableListOf<UserPhone>()
+            Log.d("@@無資料", stArrayList.toString())
+            // 檔案不存在，顯示錯誤訊息
+        }
+
     }
 
     fun click_add(view: View) {
@@ -86,10 +105,15 @@ class PhoneBookMainActivity : AppCompatActivity() {
             if (editidtext >= 0) {
                 stArrayList[editidtext] = r2
                 btn.setText("新增")
+                Log.d("修改完寫入資料", stArrayList.toString())
+                savedata()
             }
         } else {
             btn.setText("新增")
             stArrayList?.add(0, r2)
+
+            Log.d("新增完寫入資料", stArrayList.toString())
+            savedata()
         }
         name.setText("")
         eng.setText("")
@@ -101,7 +125,9 @@ class PhoneBookMainActivity : AppCompatActivity() {
         Toast.makeText(context, "資料新增完成", Toast.LENGTH_SHORT).show()
         val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
         imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
     }
+
 
     // inner 內部類別可使用外部類別資料，包含private 資料
     inner class MyListAdapter : BaseAdapter() { // 繼承BaseAdapter
@@ -170,17 +196,19 @@ class PhoneBookMainActivity : AppCompatActivity() {
                 Log.d("name", stArrayList[position].name.toString())
                 AlertDialog.Builder(context)
                     .setTitle("是否確定刪除")
-                    .setNeutralButton("是"){dialog,which ->
+                    .setNeutralButton("是") { dialog, which ->
                         stArrayList.removeAt(position)
                         myListAdapter?.notifyDataSetChanged()
+                        Log.d("刪除完寫入資料", stArrayList.toString())
+                        savedata()
                     }
-                    .setPositiveButton("否"){dialog,which ->
+                    .setPositiveButton("否") { dialog, which ->
                     }.show()
 
                 // 資料有異動，通知ListView 畫面需更新
 
             }
-                // 顯示資訊
+            // 顯示資訊
             val drawableId = drawableArrayList.get(position)
 
             val r2 = stArrayList.get(position)
@@ -192,5 +220,65 @@ class PhoneBookMainActivity : AppCompatActivity() {
 
             return itemLayout
         }
+    }
+
+
+    fun savedata() {
+        try {
+            val fos = openFileOutput(fileName, Context.MODE_PRIVATE)
+            val oos = ObjectOutputStream(fos)
+            Log.d("@@開始存檔", stArrayList.toString())
+            oos.writeObject(stArrayList)
+            oos.close()
+            fos.close()
+            Log.d("@@@", "存檔成功")
+// 顯示訊息存檔成功
+// 訊息停留時間
+// LENGTH_SHORT 短
+// LENGTH_LONG 長
+            Toast.makeText(this, "存檔成功", Toast.LENGTH_SHORT).show()
+        } catch (e: FileNotFoundException) {
+            Log.d("@@@ 檔案找不到", e.toString())
+        } catch (e: IOException) {
+            Log.d("@@@ 輸出發生問題", e.toString())
+        }
+
+        val file = File(context.filesDir, fileName)
+        if (file.exists()) {
+            Log.d("@@a有檔案", "檔案存在")
+        } else {
+            Log.d("@@a無檔案", "檔案不存在")
+        }
+
+
+    }
+
+    fun readUserData(): MutableList<UserPhone>? {
+        //val file = File(fileName)
+        val file = File(context.filesDir, fileName)
+        if (file.exists()) {
+            Log.d("@@有檔案", "檔案存在")
+            try {
+                val fis = openFileInput(fileName)
+                val ois = ObjectInputStream(fis)
+                stArrayList = ois.readObject() as MutableList<UserPhone> // as Student? 轉型
+                ois.close()
+                fis.close()
+
+                Log.d("@@@", "讀檔成功" + stArrayList.toString())
+                // 顯示訊息存檔成功
+                // 訊息停留時間LENGTH_SHORT 短LENGTH_LONG 長
+                Toast.makeText(this, "讀檔成功", Toast.LENGTH_SHORT).show()
+                return stArrayList
+            } catch (e: FileNotFoundException) {
+                Log.d("@@@ 檔案找不到", e.toString())
+            } catch (e: IOException) {
+                Log.d("@@@ 輸出發生問題", e.toString())
+            }
+        } else {
+            Log.d("@@無檔案", "檔案不存在")
+            //file.createNewFile()
+        }
+        return null
     }
 }
