@@ -19,32 +19,38 @@ class TabActivity : AppCompatActivity() {
 
         init() // 初始化
     }
+
     private fun init() {
         val tab_layout = findViewById<TabLayout>(R.id.tab_layout)
         val tab_pager = findViewById<ViewPager2>(R.id.tab_pager)
-// 設定ViewPager2 資料適配器
+
+        // 設定ViewPager2 資料適配器
         tab_pager.adapter = MyPagerAdapter(this)
-// 連結tab_layout 與tab_pager
+
+        // 連結tab_layout 與tab_pager
         TabLayoutMediator(tab_layout, tab_pager) { tab, position ->
             val s = "第" + position + "頁"
             tab.text = s // 設定tab 標題字串
         }.attach()
     }
+
     // inner class(內部類別) 能使用外部類別私有成員
-// 資料適配器
+    // 資料適配器
     inner class MyPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         // 有多少項資料
         override fun getItemCount(): Int {
             return 2 // 有2頁
         }
+
         // 產生片段畫面
         override fun createFragment(position: Int): Fragment {
 // 建立片段
             lateinit var f: Fragment
-            when(position) {
+            when (position) {
                 0 -> {
                     f = TabFragment1()
                 }
+
                 1 -> {
                     f = TabFragment2()
                 }
@@ -53,26 +59,6 @@ class TabActivity : AppCompatActivity() {
         }
     } // MyPagerAdapter
 } // Activity
-// 片段類別不能是內部類別(inner class)
-class TabFragment1: Fragment() {
-    // 建立片段畫面
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-// inflater(畫面佈局載入器)
-        return inflater.inflate(R.layout.tab_fragment1_layout, container, false)
-    }
-}
-class TabFragment2: Fragment() {
-    // 建立片段畫面
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-// inflater(畫面佈局載入器)
-        return inflater.inflate(R.layout.tab_fragment2_layout, container, false)
-    }
-}
+
+
+
